@@ -1,0 +1,71 @@
+/* Estilos para el botón de idiomas flotante */
+    .flotante-idiomas {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 1000;
+    }
+    .flotante-idiomas summary {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.2rem;
+      background: var(--azul-oscuro);
+      color: var(--blanco);
+      font-size: 0.95rem;
+      font-weight: 700;
+      border-radius: 999px;
+      box-shadow: var(--sombra-hover);
+      cursor: pointer;
+      list-style: none;
+      transition: background var(--transicion), transform var(--transicion);
+    }
+    .flotante-idiomas summary:hover,
+    .flotante-idiomas .desplegable[open] > summary {
+      background: var(--azul);
+      transform: translateY(-2px);
+    }
+    .flotante-idiomas summary::-webkit-details-marker {
+      display: none;
+    }
+    
+    /* Aislar el menú flotante de los estilos móviles globales */
+    .flotante-idiomas .desplegable {
+      position: relative !important;
+    }
+    .flotante-idiomas .submenu {
+      position: absolute !important;
+      top: auto !important;
+      bottom: calc(100% + 0.5rem) !important;
+      right: 0 !important;
+      left: auto !important;
+      min-width: 10rem !important;
+      margin: 0 !important;
+    }
+
+    @keyframes aparecerArriba {
+      from { opacity: 0; transform: translateY(0.35rem); }
+    }
+    .flotante-idiomas .desplegable[open] .submenu {
+      animation: aparecerArriba 0.18s ease-out;
+    }
+    .flotante-idiomas .submenu a {
+      display: block;
+      padding: 0.55rem 0.9rem;
+      color: var(--azul-oscuro);
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background var(--transicion), color var(--transicion);
+    }
+    .flotante-idiomas .submenu a:hover {
+      background: var(--azul-claro);
+      color: var(--azul);
+    }
+    
+    @media (max-width: 48rem) {
+      .flotante-idiomas {
+        bottom: 1rem;
+        right: 1rem;
+      }
+    }

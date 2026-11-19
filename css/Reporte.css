@@ -1,0 +1,79 @@
+/* Estilos para el módulo de Reportar Avería */
+.reporte-card {
+  background: var(--blanco);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-lg);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  box-shadow: var(--sombra);
+}
+
+.campo-ubicacion-gps {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.campo-ubicacion-gps input {
+  flex: 1;
+  min-width: 15rem;
+}
+
+.ticket-confirmacion {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: var(--azul-claro);
+  border: 2px dashed var(--turquesa);
+  border-radius: var(--radio);
+  text-align: center;
+}
+
+.ticket-box {
+  margin: 1rem 0;
+  padding: 0.75rem;
+  background: var(--blanco);
+  border-radius: var(--radio);
+  display: inline-block;
+}
+
+.ticket-box strong {
+  display: block;
+  font-size: 1.4rem;
+  color: var(--azul);
+}
+
+.historial-container {
+  margin-top: 2rem;
+  border-top: 1px solid var(--borde);
+  padding-top: 1rem;
+}
+
+.lista-tickets {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.5rem;
+}
+
+.lista-tickets li {
+  background: var(--fondo);
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+/* Estilos adicionales: no reemplazan los estilos originales del proyecto */
+.indicacion-mapa { margin: .75rem 0; color: var(--azul); font-size: .95rem; }
+#contenedor-mapa-reporte { margin-top: .5rem; }
+.estado-ubicacion-reporte { margin: .65rem 0 1rem; color: var(--azul); font-size: .9rem; }
+.estado-ubicacion-reporte.ubicacion-seleccionada { color: #168653; font-weight: 600; }
+.ticket-confirmacion { margin-top: 1.5rem; padding: 1.5rem; background: var(--azul-claro); border: 2px dashed var(--turquesa); border-radius: var(--radio); text-align: center; }
+.ticket-box { margin: 1rem 0; padding: .75rem; background: var(--blanco); border-radius: var(--radio); display: inline-block; }
+.ticket-box span { display: block; font-size: .9rem; }
+.ticket-box strong { display: block; font-size: 1.4rem; color: var(--azul); }
+.historial-container { margin-top: 2rem; border-top: 1px solid var(--borde); padding-top: 1rem; }
+.lista-tickets { list-style: none; padding: 0; margin-top: .5rem; }
+.lista-tickets li { background: var(--fondo); padding: .6rem 1rem; border-radius: 8px; margin-bottom: .5rem; display: flex; justify-content: space-between; gap: .75rem; font-size: .9rem; overflow-wrap: anywhere; }
+.hidden { display: none !important; }
+@media (max-width: 600px) { .lista-tickets li { flex-direction: column; } }

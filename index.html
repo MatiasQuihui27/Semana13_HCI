@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AQUAMAP: consulta en un mapa interactivo las zonas sin servicio de agua cerca de ti.">
+  <title>Inicio | AQUAMAP</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/lenguaje.css">
+  <link rel="icon" type="image/svg+xml" href="iconos/file.svg">
+</head>
+<body>
+
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<header class="cabecera">
+  <div class="contenedor barra">
+    <a class="marca" href="index.html"><img src="iconos/Logo.jpg" alt="" width="42" height="42">AQUAMAP</a>
+
+    <nav aria-label="Navegación principal">
+      <ul class="menu">
+        <li><p data-i18n="nav_follow">Síguenos</p></li>
+        <li><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="iconos/facebook.jpg" alt="" width="35" height="35"></a></li>
+        <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="iconos/instagram.jpg" alt="" width="35" height="35"></a></li>
+        <li><a href="https://pe.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="iconos/linkedin.jpg" alt="" width="35" height="35"></a></li>
+        <li><a href="https://www.whatsapp.com/" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><img src="iconos/whatsapp.jpg" alt="" width="35" height="35"></a></li>
+        <li><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><img src="iconos/youtube.jpg" alt="" width="35" height="35"></a></li>
+
+        <li>
+          <details class="desplegable">
+            <summary data-i18n="nav_portal">Portal de Transparencia</summary>
+            <ul class="submenu">
+              <li><a href="index.html#servicios" data-i18n="nav_servicios">Servicios</a></li>
+              <li><a href="index.html#orientador" data-i18n="nav_ver_mapa">Ver Mapa</a></li>
+              <li><a href="index.html#contacto" data-i18n="nav_ver_wa">Ver WhatsApp</a></li>
+            </ul>
+          </details>
+        </li>
+
+        <li><a href="recursos.html" data-i18n="nav_video">Video y guía</a></li>
+        <li><a href="Reporte.html">Reporte</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+
+  <!-- Inicio -->
+  <section id="inicio" class="hero contenedor dos-columnas" aria-labelledby="titulo">
+    <div>
+      <p class="etiqueta"><img src="imagenes/Logo.jpg" alt="" width="25" height="25"><span data-i18n="hero_tag">Servicio digital</span></p>
+      <h1 id="titulo" data-i18n="hero_title">Tu mapa del agua,<br>siempre a la mano.</h1>
+      <p data-i18n="hero_desc">Conoce las zonas sin servicio de agua mediante un mapa interactivo.</p>
+      <div class="acciones">
+        <a class="boton" href="#orientador" data-i18n="btn_mapa">Consultar mapa</a>
+        <a class="enlace" href="recursos.html" data-i18n="btn_servicios">Conoce nuestros servicios</a>
+      </div>
+    </div>
+    <figure class="postal">
+      <img class="foto" src="imagenes/mapa.jpg" alt="Mapa de las zonas sin servicio de agua" width="1000" height="700">
+      <figcaption data-i18n="hero_fig">El servicio de agua es una necesidad.</figcaption>
+    </figure>
+  </section>
+
+  <!-- Cortes cercanos -->
+  <section id="orientador" class="seccion fondo" aria-labelledby="titulo-cortes">
+    <div class="contenedor ubicacion">
+      <p class="etiqueta" data-i18n="cortes_tag">Información sobre los cortes de agua cercanos</p>
+      <h2 id="titulo-cortes" data-i18n="cortes_title">Descubre cortes de agua cercanos a tu zona</h2>
+
+      <article class="tarjeta tarjeta-ubicacion">
+        <span class="numero" data-i18n="cortes_badge"> Mapa Cortes Cercanos </span>
+        <h3 data-i18n="ubicacion_title">Comparte tu ubicación</h3>
+        <p data-i18n="ubicacion_desc">Para mostrarte los cortes de agua cercanos, necesitamos acceder a tu ubicación actual.</p>
+        <img id="ubicacion-logo" src="imagenes/LogoUbicacion.png" alt="">
+        <div class="botones-ubicacion">
+          <button class="boton" type="button" data-i18n="btn_ubicacion">Compartir ubicación</button>
+          <a class="boton boton--contorno" href="mapa.html" data-i18n="btn_manual">Buscar manualmente</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Servicios -->
+  <section id="servicios" class="seccion contenedor" aria-labelledby="titulo-servicios">
+    <p class="etiqueta" data-i18n="serv_tag">Servicios en línea</p>
+    <h2 id="titulo-servicios" data-i18n="serv_title">Gestiona tu servicio de agua</h2>
+
+    <div class="tarjetas">
+      <article class="tarjeta">
+        <img class="icono" src="iconos/cosulta_tu_recibo.png" alt="" width="64" height="64">
+        <h3 data-i18n="card_1_title">Consulta tu recibo</h3>
+        <p data-i18n="card_1_desc">Revisa saldo y consumo.</p>
+      </article>
+      <article class="tarjeta">
+        <img class="icono" src="iconos/pago_en_linea.png" alt="" width="64" height="64">
+        <h3 data-i18n="card_2_title">Pago en línea</h3>
+        <p data-i18n="card_2_desc">Paga rápido y seguro.</p>
+      </article>
+      <article class="tarjeta">
+        <img class="icono" src="iconos/reporta_tu_averia.png" alt="" width="64" height="64">
+        <h3 data-i18n="card_3_title">Reporta una avería</h3>
+        <p data-i18n="card_3_desc">Informa una incidencia.</p>
+      </article>
+      <article class="tarjeta">
+        <img class="icono" src="iconos/cortes_de_agua.png" alt="" width="64" height="64">
+        <h3 data-i18n="card_4_title">Cortes de agua</h3>
+        <p data-i18n="card_4_desc">Consulta el mapa de tu zona.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="contacto" class="seccion contenedor" aria-labelledby="titulo-contacto">
+    <div class="banda">
+      <div>
+        <h2 id="titulo-contacto" data-i18n="contacto_title">¿Necesitas ayuda?</h2>
+        <p data-i18n="contacto_desc">Escríbenos por WhatsApp y te orientamos.</p>
+      </div>
+      <a class="boton boton--whatsapp" href="https://www.whatsapp.com/" target="_blank" rel="noopener noreferrer">
+        <svg class="icono-wa" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span data-i18n="btn_contacto">Escribir por WhatsApp</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pie">
+  <div class="contenedor">
+    <p><strong data-i18n="footer_title">AQUAMAP</strong> · <span data-i18n="footer_desc">Tu mapa del agua, siempre a la mano</span></p>
+    <p data-i18n="footer_contact">Contacto de ejemplo: hola@ejemplo.org</p>
+    <nav class="redes" aria-label="Redes sociales de referencia">
+      <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><img src="iconos/facebook.svg" alt="" width="24" height="24">Facebook</a>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><img src="iconos/instagram.svg" alt="" width="24" height="24">Instagram</a>
+      <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"><img src="iconos/youtube.svg" alt="" width="24" height="24">YouTube</a>
+    </nav>
+    <p><span data-i18n="footer_copy">© 2026 AQUAMAP · Ejemplo educativo ficticio · </span><a href="FUENTES.txt" data-i18n="footer_credits">Créditos de recursos</a></p>
+  </div>
+</footer>
+
+<!-- CONTENEDOR FLOTANTE DEL IDIOMA -->
+<div class="flotante-idiomas">
+  <details class="desplegable" id="menu-idiomas">
+    <summary>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+        <path d="M2 12h20"></path>
+      </svg>
+      <span id="texto-idioma-actual">ES</span>
+    </summary>
+    <ul class="submenu">
+      <li><a onclick="cambiarIdioma('es', 'ES')">Español</a></li>
+      <li><a onclick="cambiarIdioma('qu', 'QUE')">Quechua</a></li>
+      <li><a onclick="cambiarIdioma('ay', 'AYM')">Aymara</a></li>
+    </ul>
+  </details>
+</div>
+
+<!-- Lógica de idiomas importada desde el archivo externo -->
+<script src="jslenguajes.js"></script>
+
+</body>
+</html>

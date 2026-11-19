@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/Reporte.css">
+    <link rel="stylesheet" href="css/mapa.css">
+    <script src="Reporte.js" defer></script>
+    <title>Reportar Fuga de Agua</title>
+</head>
+<body>
+    <header class="cabecera">
+        <div class="contenedor barra">
+            <a class="marca" href="index.html"><img src="iconos/Logo.jpg" alt="" width="42" height="42">AQUAMAP</a>
+
+            <nav aria-label="Navegación principal">
+            <ul class="menu">
+                <li><p>Síguenos</p></li>
+                <li><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="iconos/facebook.jpg" alt="" width="35" height="35"></a></li>
+                <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="iconos/instagram.jpg" alt="" width="35" height="35"></a></li>
+                <li><a href="https://pe.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="iconos/linkedin.jpg" alt="" width="35" height="35"></a></li>
+                <li><a href="https://www.whatsapp.com/" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><img src="iconos/whatsapp.jpg" alt="" width="35" height="35"></a></li>
+                <li><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><img src="iconos/youtube.jpg" alt="" width="35" height="35"></a></li>
+
+                <li>
+                <!-- details abre el submenú con clic, Enter o toque; no necesita JS. -->
+                <details class="desplegable">
+                    <summary>Portal de Transparencia</summary>
+                    <ul class="submenu">
+                    <li><a href="index.html#servicios">Servicios</a></li>
+                    <li><a href="index.html#orientador">Ver Mapa</a></li>
+                    <li><a href="index.html#contacto">Ver WhatsApp</a></li>
+                    </ul>
+                </details>
+                </li>
+
+                <li><a href="recursos.html">Video y guía</a></li>
+                <li><a href="Reporte.html">Reportar Fuga</a></li>
+            </ul>
+            </nav>
+        </div>
+    </header>
+    <section id="reportar-averia" class="seccion contenedor" aria-labelledby="titulo-reporte">
+    <div class="reporte-card">
+    <h2 id="titulo-reporte">Reporta una fuga o avería en la vía pública</h2>
+    <p>Si identificas una fuga de agua o un colapso de alcantarillado, repórtalo de inmediato para evitar el desperdicio del recurso.</p>
+
+    <!-- Formulario interactivo -->
+    <form id="form-averia" class="formulario" novalidate>
+      
+      <!-- Campo Tipo de Avería -->
+      <label for="tipo-averia">Tipo de incidencia *</label>
+      <select id="tipo-averia" required>
+        <option value="" disabled selected>Selecciona el tipo de avería</option>
+        <option value="fuga_agua">Fuga de agua potable en calle/vereda</option>
+        <option value="sin_agua">Falta de agua en la zona</option>
+        <option value="alcantarillado">Colapso de alcantarillado / desagüe</option>
+        <option value="medidor">Medidor dañado o robado</option>
+      </select>
+
+      <!-- Ubicación con autocompletado por GPS -->
+      <label for="direccion-averia">Ubicación de la incidencia *</label>
+      <div class="campo-ubicacion-gps">
+        <input type="text" id="direccion-averia" placeholder="Ej. Av. Javier Prado Este 1230, San Isidro" required>
+        <button type="button" id="btn-gps-averia" class="boton boton--contorno">
+          📍 Usar mi GPS
+        </button>
+      </div>
+
+      <!-- Mapa para seleccionar la ubicación, reutilizando el diseño de mapa.html -->
+      <p class="indicacion-mapa">También puedes hacer clic en el mapa para señalar el lugar exacto de la fuga.</p>
+      <div id="contenedor-mapa-reporte" class="mapa-interactivo">
+        <img src="imagenes/mapa.jpg" alt="Mapa para seleccionar la ubicación de la fuga" id="imagen-mapa-reporte">
+        <div id="pin-reporte" class="pin oculto" aria-label="Ubicación seleccionada">
+          <div class="pin-dibujado"></div>
+        </div>
+      </div>
+      <p id="estado-ubicacion-reporte" class="estado-ubicacion-reporte" aria-live="polite">No has seleccionado una ubicación en el mapa.</p>
+
+      <!-- Adjuntar Fotografía -->
+      <label for="foto-averia">Adjuntar fotografía de referencia (opcional)</label>
+      <input type="file" id="foto-averia" accept="image/*">
+
+      <!-- Descripción corta -->
+      <label for="descripcion-averia">Detalle o referencia adicional</label>
+      <textarea id="descripcion-averia" rows="3" placeholder="Describe brevemente la avería (ej. Fuga cerca al parque principal)"></textarea>
+
+      <!-- Botón de Envío -->
+      <button type="submit" class="boton">Enviar reporte</button>
+    </form>
+
+    <div id="confirmacion-ticket" class="ticket-confirmacion hidden" role="status" aria-live="polite">
+      <h2>¡Reporte Enviado con Éxito!</h2>
+      <p>Tu incidencia ha sido registrada correctamente.</p>
+      <div class="ticket-box">
+        <span>Número de reporte</span>
+        <strong id="numero-ticket-generado"></strong>
+      </div>
+      <button type="button" id="btn-nuevo-reporte" class="boton">Registrar otro reporte</button>
+    </div>
+
+    <div class="historial-container">
+      <h3>Mis reportes registrados</h3>
+      <ul id="lista-tickets" class="lista-tickets">
+        <li>No tienes reportes registrados aún.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+</body>
+</html>

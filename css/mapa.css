@@ -1,0 +1,78 @@
+/* =========================================================
+   AQUAMAP · mapa.css (Pin visual garantizado en CSS)
+========================================================= */
+
+/* Contenedor relativo */
+.mapa-interactivo {
+    position: relative !important;
+    display: block !important;
+    width: 100%;
+    min-height: 300px;
+    background-color: #dce7f0;
+    border-radius: var(--radio-lg);
+    cursor: pointer !important;
+    user-select: none;
+    overflow: hidden;
+}
+
+.mapa-interactivo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+    object-fit: cover;
+    pointer-events: none !important;
+}
+
+/* Envoltorio del Pin */
+.pin {
+    position: absolute !important;
+    width: 32px;
+    height: 32px;
+    z-index: 99999 !important;
+    pointer-events: none;
+    /* Ubica la punta exactamente sobre el clic */
+    transform: translate(-50%, -100%);
+    transition: left 0.15s ease-out, top 0.15s ease-out;
+}
+
+/* Dibujo del Pin en CSS Puro */
+.pin-dibujado {
+    width: 30px;
+    height: 30px;
+    background-color: #087CA7; /* Azul AquaMap */
+    border: 3px solid #FFFFFF;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.35);
+    position: relative;
+}
+
+/* Círculo centro del Pin */
+.pin-dibujado::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: #FFFFFF;
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Ocultar pin inicialmente */
+.pin.oculto {
+    display: none !important;
+}
+
+/* Animación de tarjetas */
+.animar-tarjeta {
+    animation: refrescar 0.3s ease-in-out;
+}
+
+@keyframes refrescar {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
