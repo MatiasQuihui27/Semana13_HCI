@@ -9,36 +9,67 @@
     <title>Mapa Cortes de Agua</title>
 </head>
 <body>
-    <header class="cabecera">
-        <div class="contenedor barra">
-            <a class="marca" href="index.html"><img src="iconos/Logo.jpg" alt="" width="42" height="42">AQUAMAP</a>
+   <header class="cabecera">
+  <div class="contenedor barra">
+    <a class="marca" href="index.html">
+      <img src="iconos/Logo.jpg" alt="" width="42" height="42">AQUAMAP
+    </a>
 
-            <nav aria-label="Navegación principal">
-            <ul class="menu">
-                <li><p>Síguenos</p></li>
-                <li><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="iconos/facebook.jpg" alt="" width="35" height="35"></a></li>
-                <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="iconos/instagram.jpg" alt="" width="35" height="35"></a></li>
-                <li><a href="https://pe.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="iconos/linkedin.jpg" alt="" width="35" height="35"></a></li>
-                <li><a href="https://www.whatsapp.com/" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><img src="iconos/whatsapp.jpg" alt="" width="35" height="35"></a></li>
-                <li><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><img src="iconos/youtube.jpg" alt="" width="35" height="35"></a></li>
+    <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Abrir menú de navegación">
 
-                <li>
-                <details class="desplegable">
-                    <summary>Portal de Transparencia</summary>
-                    <ul class="submenu">
-                    <li><a href="index.html#servicios">Servicios</a></li>
-                    <li><a href="index.html#orientador">Ver Mapa</a></li>
-                    <li><a href="index.html#contacto">Ver WhatsApp</a></li>
-                    </ul>
-                </details>
-                </li>
+    <div class="barra-acciones">
+      <a class="boton btn-reportar--movil" href="Reporte.html">Reportar</a>
+      <label for="menu-toggle" class="btn-hamburguesa" aria-label="Abrir o cerrar menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
 
-                <li><a href="recursos.html">Video y guía</a></li>
-                <li><a href="Reporte.html">Reporte</a></li>
+    <nav class="nav-principal" aria-label="Navegación principal">
+      <ul class="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="mapa.html">Mapa de cortes</a></li>
+        <li>
+          <details class="desplegable">
+            <summary>Portal de Transparencia</summary>
+            <ul class="submenu">
+              <li><a href="index.html#servicios">Servicios en línea</a></li>
+              <li><a href="index.html#orientador">Cortes cercanos</a></li>
+              <li><a href="index.html#contacto">Atención por WhatsApp</a></li>
             </ul>
-            </nav>
-        </div>
-    </header>
+          </details>
+        </li>
+        <li><a href="mapa.html">Mapa de cortes</a></li>
+        <li><a class="btn-reportar" href="Reporte.html">Reportar avería</a></li>
+
+        <li class="menu-item--solo-movil">
+          <div class="menu-bloque">
+            <p class="menu-bloque__titulo">Idioma</p>
+            <div class="menu-idiomas">
+              <button type="button" class="btn-idioma" onclick="if (typeof cambiarIdioma === 'function') cambiarIdioma('es', 'ES')">Español</button>
+              <button type="button" class="btn-idioma" onclick="if (typeof cambiarIdioma === 'function') cambiarIdioma('qu', 'QUE')">Quechua</button>
+              <button type="button" class="btn-idioma" onclick="if (typeof cambiarIdioma === 'function') cambiarIdioma('ay', 'AYM')">Aymara</button>
+            </div>
+          </div>
+        </li>
+
+        <li class="menu-item--solo-movil">
+          <div class="menu-bloque">
+            <p class="menu-bloque__titulo">Síguenos</p>
+            <div class="menu-redes">
+              <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="iconos/facebook.jpg" alt="" width="35" height="35"></a>
+              <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="iconos/instagram.jpg" alt="" width="35" height="35"></a>
+              <a href="https://pe.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="iconos/linkedin.jpg" alt="" width="35" height="35"></a>
+              <a href="https://www.whatsapp.com/" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><img src="iconos/whatsapp.jpg" alt="" width="35" height="35"></a>
+              <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><img src="iconos/youtube.jpg" alt="" width="35" height="35"></a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
     <section class="cortes-cercanos"> 
         <section> 
