@@ -15,34 +15,66 @@
 
 <header class="cabecera">
   <div class="contenedor barra">
-    <a class="marca" href="index.html"><img src="iconos/Logo.jpg" alt="" width="42" height="42">AQUAMAP</a>
+    <a class="marca" href="index.html">
+      <img src="iconos/Logo.jpg" alt="" width="42" height="42">AQUAMAP
+    </a>
 
-    <nav aria-label="Navegación principal">
+    <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Abrir menú de navegación">
+
+    <div class="barra-acciones">
+      <a class="boton btn-reportar--movil" href="Reporte.html">Reportar</a>
+      <label for="menu-toggle" class="btn-hamburguesa" aria-label="Abrir o cerrar menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
+
+    <nav class="nav-principal" aria-label="Navegación principal">
       <ul class="menu">
-        <li><p data-i18n="nav_follow">Síguenos</p></li>
-        <li><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="iconos/facebook.jpg" alt="" width="35" height="35"></a></li>
-        <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="iconos/instagram.jpg" alt="" width="35" height="35"></a></li>
-        <li><a href="https://pe.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="iconos/linkedin.jpg" alt="" width="35" height="35"></a></li>
-        <li><a href="https://www.whatsapp.com/" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><img src="iconos/whatsapp.jpg" alt="" width="35" height="35"></a></li>
-        <li><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><img src="iconos/youtube.jpg" alt="" width="35" height="35"></a></li>
-
+        <li><a href="index.html" aria-current="page">Inicio</a></li>
+        <li><a href="mapa.html" data-i18n="nav_ver_mapa">Mapa de cortes</a></li>
         <li>
           <details class="desplegable">
             <summary data-i18n="nav_portal">Portal de Transparencia</summary>
             <ul class="submenu">
-              <li><a href="index.html#servicios" data-i18n="nav_servicios">Servicios</a></li>
-              <li><a href="index.html#orientador" data-i18n="nav_ver_mapa">Ver Mapa</a></li>
-              <li><a href="index.html#contacto" data-i18n="nav_ver_wa">Ver WhatsApp</a></li>
+              <li><a href="index.html#servicios" data-i18n="nav_servicios">Servicios en línea</a></li>
+              <li><a href="index.html#orientador">Cortes cercanos</a></li>
+              <li><a href="index.html#contacto" data-i18n="nav_ver_wa">Atención por WhatsApp</a></li>
             </ul>
           </details>
         </li>
-
         <li><a href="recursos.html" data-i18n="nav_video">Video y guía</a></li>
-        <li><a href="Reporte.html">Reporte</a></li>
+        <li><a class="btn-reportar" href="Reporte.html">Reportar avería</a></li>
+
+        <li class="menu-item--solo-movil">
+          <div class="menu-bloque">
+            <p class="menu-bloque__titulo">Idioma</p>
+            <div class="menu-idiomas">
+              <button type="button" class="btn-idioma" onclick="if (typeof cambiarIdioma === 'function') cambiarIdioma('es', 'ES')">Español</button>
+              <button type="button" class="btn-idioma" onclick="if (typeof cambiarIdioma === 'function') cambiarIdioma('qu', 'QUE')">Quechua</button>
+              <button type="button" class="btn-idioma" onclick="if (typeof cambiarIdioma === 'function') cambiarIdioma('ay', 'AYM')">Aymara</button>
+            </div>
+          </div>
+        </li>
+
+        <li class="menu-item--solo-movil">
+          <div class="menu-bloque">
+            <p class="menu-bloque__titulo" data-i18n="nav_follow">Síguenos</p>
+            <div class="menu-redes">
+              <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="iconos/facebook.jpg" alt="" width="35" height="35"></a>
+              <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="iconos/instagram.jpg" alt="" width="35" height="35"></a>
+              <a href="https://pe.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="iconos/linkedin.jpg" alt="" width="35" height="35"></a>
+              <a href="https://www.whatsapp.com/" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><img src="iconos/whatsapp.jpg" alt="" width="35" height="35"></a>
+              <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><img src="iconos/youtube.jpg" alt="" width="35" height="35"></a>
+            </div>
+          </div>
+        </li>
       </ul>
     </nav>
   </div>
 </header>
+
 
 <main id="contenido">
 
