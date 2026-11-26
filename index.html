@@ -7,6 +7,7 @@
   <title>Inicio | AQUAMAP</title>
   <link rel="stylesheet" href="css/estilos.css">
   <link rel="stylesheet" href="css/lenguaje.css">
+  <link rel="stylesheet" href="css/asistente.css">
   <link rel="icon" type="image/svg+xml" href="iconos/file.svg">
 </head>
 <body>
@@ -15,66 +16,34 @@
 
 <header class="cabecera">
   <div class="contenedor barra">
-    <a class="marca" href="index.html">
-      <img src="iconos/Logo.jpg" alt="" width="42" height="42">AQUAMAP
-    </a>
+    <a class="marca" href="index.html"><img src="iconos/Logo.jpg" alt="" width="42" height="42">AQUAMAP</a>
 
-    <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Abrir menú de navegación">
-
-    <div class="barra-acciones">
-      <a class="boton btn-reportar--movil" href="Reporte.html">Reportar</a>
-      <label for="menu-toggle" class="btn-hamburguesa" aria-label="Abrir o cerrar menú">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-    </div>
-
-    <nav class="nav-principal" aria-label="Navegación principal">
+    <nav aria-label="Navegación principal">
       <ul class="menu">
-        <li><a href="index.html" aria-current="page">Inicio</a></li>
-        <li><a href="mapa.html" data-i18n="nav_ver_mapa">Mapa de cortes</a></li>
+        <li><p data-i18n="nav_follow">Síguenos</p></li>
+        <li><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="iconos/facebook.jpg" alt="" width="35" height="35"></a></li>
+        <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="iconos/instagram.jpg" alt="" width="35" height="35"></a></li>
+        <li><a href="https://pe.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="iconos/linkedin.jpg" alt="" width="35" height="35"></a></li>
+        <li><a href="https://www.whatsapp.com/" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><img src="iconos/whatsapp.jpg" alt="" width="35" height="35"></a></li>
+        <li><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><img src="iconos/youtube.jpg" alt="" width="35" height="35"></a></li>
+
         <li>
           <details class="desplegable">
             <summary data-i18n="nav_portal">Portal de Transparencia</summary>
             <ul class="submenu">
-              <li><a href="index.html#servicios" data-i18n="nav_servicios">Servicios en línea</a></li>
-              <li><a href="index.html#orientador">Cortes cercanos</a></li>
-              <li><a href="index.html#contacto" data-i18n="nav_ver_wa">Atención por WhatsApp</a></li>
+              <li><a href="index.html#servicios" data-i18n="nav_servicios">Servicios</a></li>
+              <li><a href="index.html#orientador" data-i18n="nav_ver_mapa">Ver Mapa</a></li>
+              <li><a href="index.html#contacto" data-i18n="nav_ver_wa">Ver WhatsApp</a></li>
             </ul>
           </details>
         </li>
+
         <li><a href="recursos.html" data-i18n="nav_video">Video y guía</a></li>
-        <li><a class="btn-reportar" href="Reporte.html">Reportar avería</a></li>
-
-        <li class="menu-item--solo-movil">
-          <div class="menu-bloque">
-            <p class="menu-bloque__titulo">Idioma</p>
-            <div class="menu-idiomas">
-              <button type="button" class="btn-idioma" onclick="if (typeof cambiarIdioma === 'function') cambiarIdioma('es', 'ES')">Español</button>
-              <button type="button" class="btn-idioma" onclick="if (typeof cambiarIdioma === 'function') cambiarIdioma('qu', 'QUE')">Quechua</button>
-              <button type="button" class="btn-idioma" onclick="if (typeof cambiarIdioma === 'function') cambiarIdioma('ay', 'AYM')">Aymara</button>
-            </div>
-          </div>
-        </li>
-
-        <li class="menu-item--solo-movil">
-          <div class="menu-bloque">
-            <p class="menu-bloque__titulo" data-i18n="nav_follow">Síguenos</p>
-            <div class="menu-redes">
-              <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="iconos/facebook.jpg" alt="" width="35" height="35"></a>
-              <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="iconos/instagram.jpg" alt="" width="35" height="35"></a>
-              <a href="https://pe.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="iconos/linkedin.jpg" alt="" width="35" height="35"></a>
-              <a href="https://www.whatsapp.com/" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><img src="iconos/whatsapp.jpg" alt="" width="35" height="35"></a>
-              <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><img src="iconos/youtube.jpg" alt="" width="35" height="35"></a>
-            </div>
-          </div>
-        </li>
+        <li><a href="Reporte.html">Reporte</a></li>
       </ul>
     </nav>
   </div>
 </header>
-
 
 <main id="contenido">
 
@@ -190,8 +159,53 @@
   </details>
 </div>
 
+<!-- ASISTENTE CONVERSACIONAL FLOTANTE (GOTITA) -->
+<aside class="asistente-widget" aria-label="Asistente virtual AQUAMAP">
+  <button type="button" id="btn-abrir-asistente" class="asistente-launcher" aria-expanded="false" aria-controls="panel-asistente">
+    <img src="imagenes/gotita.jpg" alt="" width="38" height="38">
+    <span id="asistente-launcher-texto">¿Te ayudo?</span>
+  </button>
+
+  <section id="panel-asistente" class="asistente-panel" hidden aria-labelledby="titulo-asistente">
+    <header class="asistente-cabecera">
+      <div class="asistente-identidad">
+        <img src="imagenes/gotita.jpg" alt="Avatar Gotita" width="36" height="36">
+        <div>
+          <h2 id="titulo-asistente">Gotita · Asistente AQUAMAP</h2>
+          <p id="asistente-estado" class="asistente-estado">En línea · Guía de servicios</p>
+        </div>
+      </div>
+      <button type="button" id="btn-cerrar-asistente" class="asistente-cerrar" aria-label="Cerrar asistente">&times;</button>
+    </header>
+
+    <div id="asistente-mensajes" class="asistente-mensajes" role="log" aria-live="polite" aria-relevant="additions"></div>
+
+    <div id="asistente-sugerencias" class="asistente-sugerencias" aria-label="Preguntas frecuentes"></div>
+
+    <form id="asistente-form" class="asistente-form">
+      <label for="asistente-input" class="saltar">Escribe tu consulta</label>
+      <input type="text" id="asistente-input" placeholder="Escribe o usa el micrófono..." autocomplete="off" required>
+      <button type="button" id="btn-voz-asistente" class="asistente-btn-voz" title="Dictar por voz" aria-label="Dictar consulta por voz">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+          <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+          <line x1="12" y1="19" x2="12" y2="23"></line>
+          <line x1="8" y1="23" x2="16" y2="23"></line>
+        </svg>
+      </button>
+      <button type="submit" id="btn-enviar-asistente" class="asistente-btn-enviar" aria-label="Enviar mensaje">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </button>
+    </form>
+  </section>
+</aside>
+
 <!-- Lógica de idiomas importada desde el archivo externo -->
 <script src="jslenguajes.js"></script>
+<script src="asistente.js"></script>
 
 </body>
 </html>
