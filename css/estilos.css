@@ -170,8 +170,62 @@ figcaption { padding-top: 0.6rem; color: var(--gris); font-size: 0.9rem; }
   font-weight: 800;
   letter-spacing: 0.04em;
   text-decoration: none;
+  flex-shrink: 0;
 }
 .marca img { width: 2.5rem; height: 2.5rem; object-fit: contain; border-radius: 0.6rem; }
+
+/* Checkbox oculto accesible para controlar el menú hamburguesa sin JS */
+.menu-toggle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Acciones exclusivas de móvil/tablet (ocultas en escritorio) */
+.barra-acciones {
+  display: none;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.btn-hamburguesa {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  background: var(--blanco);
+  border: 1px solid var(--borde);
+  border-radius: 0.65rem;
+  cursor: pointer;
+  transition: background var(--transicion), border-color var(--transicion);
+}
+.btn-hamburguesa:hover {
+  background: var(--azul-claro);
+  border-color: var(--turquesa);
+}
+.btn-hamburguesa span {
+  display: block;
+  width: 1.35rem;
+  height: 2px;
+  background: var(--azul-oscuro);
+  border-radius: 2px;
+  transition: transform var(--transicion), opacity var(--transicion);
+}
+.menu-toggle:focus-visible ~ .barra-acciones .btn-hamburguesa {
+  outline: 3px solid var(--turquesa);
+  outline-offset: 3px;
+}
+
+.nav-principal {
+  display: flex;
+  align-items: center;
+}
 
 .menu {
   display: flex;
@@ -199,11 +253,35 @@ figcaption { padding-top: 0.6rem; color: var(--gris); font-size: 0.9rem; }
 }
 .menu a:hover,
 .menu summary:hover,
-.desplegable[open] > summary { background: var(--azul-claro); color: var(--azul); }
+.menu a[aria-current="page"],
+.desplegable[open] > summary {
+  background: var(--azul-claro);
+  color: var(--azul);
+}
+
+/* Botón destacado para Reportar avería (resuelve H4) */
+.menu a.btn-reportar {
+  background: var(--turquesa);
+  color: var(--blanco);
+  padding: 0.55rem 1.15rem;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgb(22 184 176 / 0.25);
+}
+.menu a.btn-reportar:hover {
+  background: var(--turquesa-hover);
+  color: var(--blanco);
+}
+.menu a.btn-reportar[aria-current="page"] {
+  background: var(--azul-oscuro);
+  color: var(--blanco);
+}
 
 /* Iconos de redes: circulares, sin relleno extra */
 .menu a:has(> img) { padding: 0.2rem; }
 .menu a:has(> img) img { width: 2.25rem; height: 2.25rem; object-fit: cover; border-radius: 50%; }
+
+/* Bloques secundarios (idiomas y redes) solo dentro del menú hamburguesa */
+.menu-item--solo-movil { display: none; }
 
 /* Submenú con <details>: funciona sin JavaScript */
 .desplegable { position: relative; }
@@ -596,23 +674,152 @@ textarea { resize: vertical; }
 }
 
 /* ---------- 10. RESPONSIVE ---------- */
-@media (max-width: 48rem) {
-  /* En celular el encabezado deja de ser fijo para no tapar la pantalla */
-  .cabecera { position: relative; }
-  .barra { justify-content: center; }
-  .menu { justify-content: center; }
-  section[id] { scroll-margin-top: 1rem; }
+@media (max-width: 60rem) {
+  .barra {
+    flex-wrap: nowrap;
+    gap: 1rem;
+  }
 
-  /* El submenú ocupa el ancho del encabezado: nunca se sale de la pantalla */
+  .barra-acciones { display: flex; }
+
+  .btn-reportar--movil {
+    padding: 0.48rem 0.95rem;
+    font-size: 0.875rem;
+  }
+
+  /* Animación del ícono hamburguesa a "X" */
+  .menu-toggle:checked ~ .barra-acciones .btn-hamburguesa span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .menu-toggle:checked ~ .barra-acciones .btn-hamburguesa span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle:checked ~ .barra-acciones .btn-hamburguesa span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Panel desplegable del menú hamburguesa */
+  .nav-principal {
+    display: none;
+    position: absolute;
+    top: 100%;
+    inset-inline: 0;
+    z-index: 120;
+    background: var(--blanco);
+    border-bottom: 1px solid var(--borde);
+    box-shadow: var(--sombra-hover);
+    padding: 1rem 1.25rem 1.5rem;
+    max-height: calc(100dvh - 4.25rem);
+    overflow-y: auto;
+  }
+  .menu-toggle:checked ~ .nav-principal {
+    display: block;
+    animation: aparecer 0.2s ease-out;
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.3rem;
+  }
+
+  .menu a,
+  .menu summary {
+    width: 100%;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+  }
+
+  .menu a.btn-reportar {
+    justify-content: center;
+    margin-top: 0.35rem;
+  }
+
+  /* Acordeón de Portal de Transparencia integrado dentro del menú */
   .desplegable { position: static; }
-  .submenu { inset-inline: 0; top: 100%; min-width: 0; margin: 0.5rem 1rem 0; }
+  .submenu {
+    position: static;
+    min-width: 0;
+    margin: 0.35rem 0 0.25rem;
+    padding: 0.35rem 0.5rem;
+    background: var(--fondo);
+    border: 0;
+    box-shadow: none;
+  }
 
+  /* Secciones de idioma y redes dentro del menú hamburguesa */
+  .menu-item--solo-movil { display: block; }
+
+  .menu-bloque {
+    margin-top: 0.75rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--borde);
+  }
+  .menu-bloque__titulo {
+    margin: 0 0 0.55rem 0.25rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--gris);
+  }
+
+  .menu-idiomas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .btn-idioma {
+    flex: 1;
+    min-width: 5.5rem;
+    padding: 0.5rem 0.75rem;
+    background: var(--fondo);
+    border: 1px solid var(--borde);
+    border-radius: 999px;
+    color: var(--azul-oscuro);
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background var(--transicion), border-color var(--transicion), color var(--transicion);
+  }
+  .btn-idioma:hover,
+  .btn-idioma:focus-visible {
+    background: var(--azul-claro);
+    border-color: var(--turquesa);
+    color: var(--azul);
+  }
+
+  .menu-redes {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+  }
+  .menu .menu-redes a {
+    width: auto;
+    padding: 0.2rem;
+    border-radius: 50%;
+  }
+  .menu .menu-redes img {
+    width: 2.25rem;
+    height: 2.25rem;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}
+
+@media (max-width: 48rem) {
   .cortes-cercanos { grid-template-columns: 1fr; margin-block: 2rem; }
   .formulario, .orientador, .resultados { padding: 1rem; }
 }
 
 @media (max-width: 30rem) {
+  .marca { font-size: 1.2rem; gap: 0.5rem; }
+  .marca img { width: 2.1rem; height: 2.1rem; }
+  .btn-reportar--movil { padding: 0.45rem 0.8rem; font-size: 0.82rem; }
+
   .acciones .boton,
-  .botones-ubicacion .boton { width: 100%; }
+  .botones-ubicacion .boton,
   .banda .boton { width: 100%; }
 }
